@@ -25,6 +25,10 @@ public class AddressService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Address Not Found in DB."));
     }
 
+    public Address saveAddress(Address address) {
+        return addressRepository.save(address);
+    }
+
 //    public List<Address> getAddresses() {
 //        return List.of(
 //                new Address(UUID.fromString("bb3373e2-1abc-4961-861e-ce7c38ab0000"), "Palestine", "Jerusalem", "Freedom ST"),
