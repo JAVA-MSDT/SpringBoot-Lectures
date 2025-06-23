@@ -29,6 +29,22 @@ public class AddressService {
         return addressRepository.save(address);
     }
 
+    public Address updateAddress(UUID id, Address address) {
+        Address dbAddress = getAddressById(id);
+        dbAddress.setAddress(address.getAddress());
+        dbAddress.setCountry(address.getCountry());
+        dbAddress.setCity(address.getCity());
+        return addressRepository.save(dbAddress);
+    }
+
+    public Address updateAddress(Address address) {
+        Address dbAddress = getAddressById(address.getId());
+        dbAddress.setAddress(address.getAddress());
+        dbAddress.setCountry(address.getCountry());
+        dbAddress.setCity(address.getCity());
+        return addressRepository.save(dbAddress);
+    }
+
 //    public List<Address> getAddresses() {
 //        return List.of(
 //                new Address(UUID.fromString("bb3373e2-1abc-4961-861e-ce7c38ab0000"), "Palestine", "Jerusalem", "Freedom ST"),

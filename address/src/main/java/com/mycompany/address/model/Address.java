@@ -1,8 +1,6 @@
 package com.mycompany.address.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 import java.util.UUID;
@@ -12,6 +10,7 @@ import java.util.UUID;
 public class Address {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String country;
     private String city;

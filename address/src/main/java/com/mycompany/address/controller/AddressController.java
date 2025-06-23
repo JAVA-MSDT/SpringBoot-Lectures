@@ -29,4 +29,15 @@ public class AddressController {
     public Address saveAddress(@RequestBody Address address) {
         return addressService.saveAddress(address);
     }
+
+    @PutMapping("/{id}")
+    public Address updateAddress(@PathVariable UUID id,@RequestBody Address address) {
+        return addressService.updateAddress(id, address);
+    }
+
+    @PutMapping()
+    public Address updateAddress(@RequestBody Address address) {
+        return addressService.updateAddress(address);
+    }
+
 }
